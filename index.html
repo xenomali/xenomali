@@ -1,115 +1,127 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>xenomali</title>
-  <style>
-    /* Reset & base */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      background: #1a1a1a;
-      color: #e0e0e0;
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      padding: 20px;
-      text-align: center;
-    }
-
-    .container {
-      max-width: 400px;
-      width: 100%;
-    }
-
-    h1 {
-      font-size: 2rem;
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: #ffffff;
-    }
-
-    .bio {
-      font-size: 1rem;
-      color: #aaaaaa;
-      margin-bottom: 28px;
-      line-height: 1.5;
-    }
-
-    #tagline {
-      font-weight: 500;
-      color: #7aa2f7; /* aksen biru lembut */
-      transition: opacity 0.2s;
-    }
-
-    button {
-      background: transparent;
-      color: #7aa2f7;
-      border: 1px solid #7aa2f7;
-      padding: 10px 24px;
-      font-size: 0.95rem;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: 500;
-      transition: background 0.2s, color 0.2s;
-    }
-
-    button:hover {
-      background: #7aa2f7;
-      color: #1a1a1a;
-    }
-
-    .footer {
-      margin-top: 32px;
-      font-size: 0.8rem;
-      color: #555;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Xenomali Jobs — Referensi Lowongan Kerja Terbaru</title>
+<meta name="description" content="Kumpulan lowongan kerja hasil scraping otomatis, dikurasi ulang tiap hari. Referensi awal, bukan sumber final — selalu cek link asli.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' fill='%23050505'/%3E%3Cpolygon points='80,60 160,60 432,420 352,420' fill='%23F0F0F0'/%3E%3Cpolygon points='432,60 352,60 80,420 160,420' fill='%23F0F0F0'/%3E%3Crect x='76' y='216' width='360' height='32' fill='%23FF0000'/%3E%3Crect x='80' y='268' width='356' height='32' fill='%2300CFFF'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>xenomali</h1>
-    <p class="bio">
-      Halo, gue cuma bikin halaman sederhana.
-      <br>Kata hari ini: <span id="tagline">ngoding santai</span>
-    </p>
-    <button id="changeBtn">Ganti kata</button>
-    <div class="footer">dibikin pake ☕ + github pages</div>
+
+<div class="bg-grid"></div>
+<div class="scanlines"></div>
+
+<!-- ── Header ── -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a href="#top" class="brand">
+      <svg width="34" height="34" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="80,60 160,60 432,420 352,420" fill="#F0F0F0"/>
+        <polygon points="432,60 352,60 80,420 160,420" fill="#F0F0F0"/>
+        <rect x="76" y="210" width="360" height="6" fill="#F0F0F0"/>
+        <rect x="76" y="216" width="360" height="32" fill="#FF0000"/>
+        <rect x="76" y="248" width="360" height="6" fill="#F0F0F0"/>
+        <rect x="76" y="210" width="6" height="44" fill="#F0F0F0"/>
+        <rect x="430" y="210" width="6" height="44" fill="#F0F0F0"/>
+        <rect x="80" y="262" width="356" height="6" fill="#F0F0F0"/>
+        <rect x="80" y="268" width="356" height="32" fill="#00CFFF"/>
+        <rect x="80" y="300" width="356" height="6" fill="#F0F0F0"/>
+        <rect x="80" y="262" width="6" height="44" fill="#F0F0F0"/>
+        <rect x="430" y="262" width="6" height="44" fill="#F0F0F0"/>
+      </svg>
+      <span class="brand-name">XENOMALI</span>
+    </a>
+    <span class="brand-tag">JOBS</span>
   </div>
+</header>
 
-  <script>
-    const tagline = document.getElementById('tagline');
-    const btn = document.getElementById('changeBtn');
+<!-- ── Disclaimer banner — persisten, sticky, non-dismissable ── -->
+<div class="disclaimer-banner" id="disclaimerBanner">
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+    <line x1="12" y1="9" x2="12" y2="13"/>
+    <line x1="12" y1="17" x2="12.01" y2="17"/>
+  </svg>
+  <span>Data ini hasil <strong>scraping otomatis</strong>, bukan fakta final. Selalu <strong>cek &amp; verifikasi sendiri</strong> lewat link JobStreet yang tersedia di tiap lowongan sebelum melamar.</span>
+</div>
 
-    const kataKata = [
-      'ngoding santai',
-      'sambil ngopi',
-      'dikit-dikit commit',
-      'bismillah merge',
-      'live, laugh, deploy',
-      'kode rapi, hati senang'
-    ];
+<main id="top">
 
-    btn.addEventListener('click', () => {
-      // ambil acak selain kata yang sedang muncul
-      let baru;
-      do {
-        baru = kataKata[Math.floor(Math.random() * kataKata.length)];
-      } while (baru === tagline.textContent && kataKata.length > 1);
-      
-      tagline.style.opacity = '0';
-      setTimeout(() => {
-        tagline.textContent = baru;
-        tagline.style.opacity = '1';
-      }, 150);
-    });
-  </script>
+  <!-- ── Hero singkat ── -->
+  <section class="hero">
+    <p class="hero-label">Referensi Lowongan &nbsp;·&nbsp; Update Otomatis</p>
+    <h1 class="hero-title">Lowongan kerja terbaru,<br><span class="red">disaring</span>, bukan <span class="blue">dijamin</span>.</h1>
+    <p class="hero-sub" id="metaInfo">Memuat data...</p>
+  </section>
+
+  <!-- ── Search + Filter bar ── -->
+  <section class="filter-bar">
+    <div class="filter-row">
+      <div class="search-wrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="7"/>
+          <path d="m21 21-4.35-4.35"/>
+        </svg>
+        <input type="text" id="searchInput" placeholder="Cari judul posisi atau perusahaan...">
+      </div>
+      <select id="filterDaerah">
+        <option value="">Semua Daerah</option>
+      </select>
+      <select id="filterJenis">
+        <option value="">Semua Jenis Kerja</option>
+      </select>
+      <select id="sortBy">
+        <option value="terbaru">Terbaru</option>
+        <option value="terlama">Terlama</option>
+      </select>
+    </div>
+    <div class="filter-row secondary">
+      <label class="toggle-gaji">
+        <input type="checkbox" id="toggleGaji">
+        <span>Hanya yang cantumkan gaji</span>
+      </label>
+      <span class="result-count" id="resultCount"></span>
+    </div>
+  </section>
+
+  <!-- ── List lowongan ── -->
+  <section class="job-list-wrap">
+    <div class="job-list" id="jobList"></div>
+    <div class="empty-state" id="emptyState" style="display:none">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="7"/>
+        <path d="m21 21-4.35-4.35"/>
+      </svg>
+      <p>Tidak ada lowongan yang cocok dengan filter ini.</p>
+      <button id="resetFilterBtn" class="btn-reset">Reset Filter</button>
+    </div>
+    <div class="loading-state" id="loadingState">
+      <div class="loader-dot"></div>
+      <span>Memuat data lowongan...</span>
+    </div>
+  </section>
+
+</main>
+
+<!-- ── Footer ── -->
+<footer class="site-footer">
+  <div class="footer-disclaimer">
+    <h3>Tentang Data Ini</h3>
+    <p>Seluruh lowongan di halaman ini dikumpulkan secara otomatis lewat proses scraping dan diproses AI tanpa verifikasi manual satu per satu. Kami <strong>tidak menjamin</strong> lowongan masih tersedia, keakuratan detail (gaji, requirement, deskripsi), maupun keabsahan perusahaan yang mencantumkan lowongan. Selalu buka link asli di JobStreet untuk memastikan, dan waspada terhadap indikasi penipuan (permintaan uang muka, transfer di awal, atau data pribadi mencurigakan). Halaman ini murni referensi awal — tanggung jawab verifikasi ada di tangan pengguna.</p>
+  </div>
+  <div class="footer-meta">
+    <span id="footerTimestamp">Data diperbarui: —</span>
+    <span class="sep">·</span>
+    <span>Xenomali Jobs — bukan afiliasi resmi JobStreet</span>
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="ui.js"></script>
+<script src="ux.js"></script>
 </body>
 </html>
