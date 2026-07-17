@@ -324,14 +324,14 @@ body { position: relative; }
   margin-top: 12px; padding-top: 12px;
   border-top: 1px solid var(--gray-14);
   display: flex; align-items: center; justify-content: space-between;
-  gap: 10px; flex-wrap: wrap;
+  gap: 10px; flex-wrap: nowrap;
 }
 .job-date {
   display: inline-flex; align-items: center; gap: 5px;
   font-size: 9.5px; color: var(--gray-44); letter-spacing: 0.05em;
+  flex-shrink: 1; min-width: 0;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
 }
-
-/* CTA button — bukan link teks biru polos lagi */
 .job-link {
   display: inline-flex; align-items: center; gap: 6px;
   font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase;
@@ -340,6 +340,8 @@ body { position: relative; }
   border: 1px solid var(--gray-22);
   background: transparent;
   transition: all 0.15s ease;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 .job-link:hover, .job-link:active {
   color: #fff; border-color: #fff; background: rgba(255,255,255,0.04);
