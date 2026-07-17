@@ -1,5 +1,5 @@
-// ── ux.js — interaksi: search, filter, sort, toggle ──
-// Depends on ui.js (ALL_JOBS, FILTERED_JOBS, renderJobs, sortJobs) sudah di-load duluan.
+// ── ux.js — interaksi: search, filter, sort, toggle, load more ──
+// Depends on ui.js (ALL_JOBS, FILTERED_JOBS, resetAndRenderFirstBatch, renderNextBatch, sortJobs).
 
 document.addEventListener('DOMContentLoaded', () => {
   const searchInput   = document.getElementById('searchInput');
@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const sortBy        = document.getElementById('sortBy');
   const toggleGaji     = document.getElementById('toggleGaji');
   const resetBtn       = document.getElementById('resetFilterBtn');
+  const loadMoreBtn    = document.getElementById('loadMoreBtn');
 
   let debounceTimer;
 
@@ -43,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     sortJobs(hasil, sortMode);
     FILTERED_JOBS = hasil;
-    renderJobs(FILTERED_JOBS);
+    resetAndRenderFirstBatch(FILTERED_JOBS);
   }
 
   function debouncedApplyFilters() {
@@ -56,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (filterJenis) filterJenis.addEventListener('change', applyFilters);
   if (sortBy) sortBy.addEventListener('change', applyFilters);
   if (toggleGaji) toggleGaji.addEventListener('change', applyFilters);
+  if (loadMoreBtn) loadMoreBtn.addEventListener('click', renderNextBatch);
 
   if (resetBtn) {
     resetBtn.addEventListener('click', () => {
@@ -68,8 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ── Sticky disclaimer offset — nempel tepat di bawah header, dinamis
-  // (jaga-jaga kalau tinggi header berubah karena font loading dsb) ──
+  // ── Sticky disclaimer offset — nempel tepat di bawah header, dinamis ──
   function updateDisclaimerOffset() {
     const header = document.getElementById('siteHeader');
     const banner = document.getElementById('disclaimerBanner');
