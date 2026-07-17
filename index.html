@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Xenomali Jobs — Referensi Lowongan Kerja Terbaru</title>
-<meta name="description" content="Kumpulan lowongan kerja hasil scraping otomatis, dikurasi ulang tiap hari. Referensi awal, bukan sumber final — selalu cek link asli.">
+<title>Xenomali Jobs — Arsip Lowongan Kerja</title>
+<meta name="description" content="Arsip statis lowongan kerja hasil experiment bot pribadi. Data snapshot Juli 2026, tidak diperbarui lagi. Selalu verifikasi mandiri ke link asli.">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' fill='%23050505'/%3E%3Cpolygon points='80,60 160,60 432,420 352,420' fill='%23F0F0F0'/%3E%3Cpolygon points='432,60 352,60 80,420 160,420' fill='%23F0F0F0'/%3E%3Crect x='76' y='216' width='360' height='32' fill='%23FF0000'/%3E%3Crect x='80' y='268' width='356' height='32' fill='%2300CFFF'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,7 +35,7 @@
       </svg>
       <span class="brand-name">XENOMALI</span>
     </a>
-    <span class="brand-tag">JOBS</span>
+    <span class="brand-tag">JOBS · ARCHIVE</span>
   </div>
 </header>
 
@@ -46,16 +46,17 @@
     <line x1="12" y1="9" x2="12" y2="13"/>
     <line x1="12" y1="17" x2="12.01" y2="17"/>
   </svg>
-  <span>Data ini hasil <strong>scraping otomatis</strong>, bukan fakta final. Selalu <strong>cek &amp; verifikasi sendiri</strong> lewat link JobStreet yang tersedia di tiap lowongan sebelum melamar.</span>
+  <span>Arsip statis hasil <strong>experiment bot pribadi</strong>, snapshot <strong>16–17 Juli 2026</strong>, tidak akan diperbarui lagi. Wajib <strong>verifikasi mandiri</strong> ke link asli.</span>
 </div>
 
 <main id="top">
 
   <!-- ── Hero singkat ── -->
   <section class="hero">
-    <p class="hero-label">Referensi Lowongan &nbsp;·&nbsp; Update Otomatis</p>
-    <h1 class="hero-title">Lowongan kerja terbaru,<br><span class="red">disaring</span>, bukan <span class="blue">dijamin</span>.</h1>
+    <p class="hero-label">Digital Archive · Batch Data 16–17 Juli 2026</p>
+    <h1 class="hero-title">Arsip lowongan kerja,<br><span class="red">statis</span>, bukan <span class="blue">live</span>.</h1>
     <p class="hero-sub" id="metaInfo">Memuat data...</p>
+    <p class="hero-note">Lowongan yang tampil adalah yang postingnya masih dalam <strong>7 hari terakhir dihitung dari tanggal snapshot</strong> (16–17 Juli 2026) — bukan dari hari kamu membuka halaman ini. Semakin lama sejak snapshot, semakin besar kemungkinan lowongan sudah ditutup. Selalu cek dan validasi data aktualnya sendiri lewat link JobStreet.</p>
   </section>
 
   <!-- ── Search + Filter bar ── -->
@@ -103,6 +104,10 @@
       <div class="loader-dot"></div>
       <span>Memuat data lowongan...</span>
     </div>
+    <div class="load-more-wrap" id="loadMoreWrap" style="display:none">
+      <button class="btn-load-more" id="loadMoreBtn">Muat Lebih Banyak</button>
+      <span class="load-more-count" id="loadMoreCount"></span>
+    </div>
   </section>
 
 </main>
@@ -110,11 +115,11 @@
 <!-- ── Footer ── -->
 <footer class="site-footer">
   <div class="footer-disclaimer">
-    <h3>Tentang Data Ini</h3>
-    <p>Seluruh lowongan di halaman ini dikumpulkan secara otomatis lewat proses scraping dan diproses AI tanpa verifikasi manual satu per satu. Kami <strong>tidak menjamin</strong> lowongan masih tersedia, keakuratan detail (gaji, requirement, deskripsi), maupun keabsahan perusahaan yang mencantumkan lowongan. Selalu buka link asli di JobStreet untuk memastikan, dan waspada terhadap indikasi penipuan (permintaan uang muka, transfer di awal, atau data pribadi mencurigakan). Halaman ini murni referensi awal — tanggung jawab verifikasi ada di tangan pengguna.</p>
+    <h3>Tentang Arsip Ini</h3>
+    <p>Seluruh referensi lowongan di halaman ini dikumpulkan secara mandiri lewat <strong>experiment bot pribadi</strong> sebagai arsip data statis, snapshot <strong>16–17 Juli 2026</strong>, dan <strong>tidak akan diperbarui lagi</strong>. Rentang "postingan 7 hari terakhir" dihitung relatif terhadap tanggal snapshot tersebut, bukan terhadap hari kamu mengakses halaman ini — semakin lama jaraknya, semakin besar kemungkinan lowongan sudah ditutup perusahaan terkait. Kami <strong>tidak berafiliasi resmi</strong> dengan JobStreet, tidak menjamin keakuratan detail (gaji, requirement, deskripsi), dan tidak bertanggung jawab atas status lowongan yang sudah berubah. Selalu buka link asli untuk memastikan, dan waspada terhadap indikasi penipuan (permintaan uang muka, transfer di awal, atau data pribadi mencurigakan). Tanggung jawab verifikasi sepenuhnya ada di tangan pengguna.</p>
   </div>
   <div class="footer-meta">
-    <span id="footerTimestamp">Data diperbarui: —</span>
+    <span id="footerTimestamp">Batch Data: 16–17 Juli 2026</span>
     <span class="sep">·</span>
     <span>Xenomali Jobs — bukan afiliasi resmi JobStreet</span>
   </div>
