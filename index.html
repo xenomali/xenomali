@@ -1,5 +1,115 @@
 <!DOCTYPE html>
-<html>
-<head><title>Xenomali</title></head>
-<body><h1>Halo</h1></body>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>xenomali</title>
+  <style>
+    /* Reset & base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #1a1a1a;
+      color: #e0e0e0;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 400px;
+      width: 100%;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #ffffff;
+    }
+
+    .bio {
+      font-size: 1rem;
+      color: #aaaaaa;
+      margin-bottom: 28px;
+      line-height: 1.5;
+    }
+
+    #tagline {
+      font-weight: 500;
+      color: #7aa2f7; /* aksen biru lembut */
+      transition: opacity 0.2s;
+    }
+
+    button {
+      background: transparent;
+      color: #7aa2f7;
+      border: 1px solid #7aa2f7;
+      padding: 10px 24px;
+      font-size: 0.95rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    button:hover {
+      background: #7aa2f7;
+      color: #1a1a1a;
+    }
+
+    .footer {
+      margin-top: 32px;
+      font-size: 0.8rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>xenomali</h1>
+    <p class="bio">
+      Halo, gue cuma bikin halaman sederhana.
+      <br>Kata hari ini: <span id="tagline">ngoding santai</span>
+    </p>
+    <button id="changeBtn">Ganti kata</button>
+    <div class="footer">dibikin pake ☕ + github pages</div>
+  </div>
+
+  <script>
+    const tagline = document.getElementById('tagline');
+    const btn = document.getElementById('changeBtn');
+
+    const kataKata = [
+      'ngoding santai',
+      'sambil ngopi',
+      'dikit-dikit commit',
+      'bismillah merge',
+      'live, laugh, deploy',
+      'kode rapi, hati senang'
+    ];
+
+    btn.addEventListener('click', () => {
+      // ambil acak selain kata yang sedang muncul
+      let baru;
+      do {
+        baru = kataKata[Math.floor(Math.random() * kataKata.length)];
+      } while (baru === tagline.textContent && kataKata.length > 1);
+      
+      tagline.style.opacity = '0';
+      setTimeout(() => {
+        tagline.textContent = baru;
+        tagline.style.opacity = '1';
+      }, 150);
+    });
+  </script>
+</body>
 </html>
