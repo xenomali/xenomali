@@ -85,6 +85,11 @@ function hitungUmurHari(tanggalStr) {
   return null;
 }
 
+function formatTanggal(str) {
+  if (!str || !str.trim()) return 'Tidak diketahui';
+  return str.replace(/^Diposting\s+/i, '').trim();
+}
+
 function populateFilterDaerah(jobs) {
   const select = document.getElementById('filterDaerah');
   if (!select) return;
@@ -234,7 +239,7 @@ function buatKartuHTML(job, idx) {
   const daerah = escapeHtml(job._daerah || '-');
   const gajiRaw = (job.gaji || '').trim();
   const jenisKerja = escapeHtml(job.jenis_kerja || '-');
-  const tanggal = escapeHtml(job.tanggal_posting || '-');
+  const tanggal = escapeHtml(formatTanggal(job.tanggal_posting));
   const link = (job.link_lowongan || '').trim();
   const requirementHtml = teksKeBulletHtml(job.requirement || '');
   const deskripsi = escapeHtml(bersihkanBarisRequirement(job.deskripsi || ''));
