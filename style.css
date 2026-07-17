@@ -53,6 +53,11 @@ body { position: relative; }
   font-family: var(--mono);
 }
 
+.filter-bar select option {
+  background: var(--gray-10);
+  color: var(--gray-88);
+}
+
 /* ── Background — CSS-only, ringan ── */
 .bg-grid {
   position: fixed; inset: 0; z-index: -2;
