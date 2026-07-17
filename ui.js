@@ -85,6 +85,7 @@ function hitungUmurHari(tanggalStr) {
   return null;
 }
 
+// Bersihin kata "Diposting" biar tanggal seragam dan hemat ruang di kartu
 function formatTanggal(str) {
   if (!str || !str.trim()) return 'Tidak diketahui';
   return str.replace(/^Diposting\s+/i, '').trim();
