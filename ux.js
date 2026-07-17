@@ -1,4 +1,4 @@
-// ── ux.js — interaksi: search, filter, sort, toggle, load more ──
+// ── ux.js — interaksi: search, filter, sort, toggle, load more, jump nav, scroll top ──
 // Depends on ui.js (ALL_JOBS, FILTERED_JOBS, resetAndRenderFirstBatch, renderNextBatch, sortJobs).
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -80,4 +80,70 @@ document.addEventListener('DOMContentLoaded', () => {
   updateDisclaimerOffset();
   window.addEventListener('resize', updateDisclaimerOffset);
   window.addEventListener('load', updateDisclaimerOffset);
+
+  // ── Scroll-to-top button — sticky, muncul setelah scroll jauh, auto scroll ke atas pas diklik ──
+  const scrollTopBtn = document.getElementById('scrollTopBtn');
+  if (scrollTopBtn) {
+    let scrollTicking = false;
+    window.addEventListener('scroll', () => {
+      if (scrollTicking) return;
+      scrollTicking = true;
+      requestAnimationFrame(() => {
+        scrollTopBtn.classList.toggle('visible', window.scrollY > 500);
+        scrollTicking = false;
+      });
+    });
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  // ── Jump nav — lompat ke kartu sebelumnya/berikutnya, bukan scroll ke atas ──
+  const jumpNav = document.getElementById('jumpNav');
+  const jumpUpBtn = document.getElementById('jumpUpBtn');
+  const jumpDownBtn = document.getElementById('jumpDownBtn');
+
+  function getVisibleCards() {
+    return Array.from(document.querySelectorAll('.job-card'));
+  }
+
+  function getCurrentCardIndex(cards) {
+    const viewportMid = window.scrollY + window.innerHeight / 2;
+    let closestIdx = 0;
+    let closestDist = Infinity;
+    cards.forEach((card, i) => {
+      const rect = card.getBoundingClientRect();
+      const cardMid = window.scrollY + rect.top + rect.height / 2;
+      const dist = Math.abs(cardMid - viewportMid);
+      if (dist < closestDist) {
+        closestDist = dist;
+        closestIdx = i;
+      }
+    });
+    return closestIdx;
+  }
+
+  function jumpToCard(direction) {
+    const cards = getVisibleCards();
+    if (!cards.length) return;
+    const currentIdx = getCurrentCardIndex(cards);
+    const targetIdx = currentIdx + direction;
+    if (targetIdx < 0 || targetIdx >= cards.length) return;
+    cards[targetIdx].scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  if (jumpUpBtn) jumpUpBtn.addEventListener('click', () => jumpToCard(-1));
+  if (jumpDownBtn) jumpDownBtn.addEventListener('click', () => jumpToCard(1));
+
+  if (jumpNav) {
+    let jumpTicking = false;
+    window.addEventListener('scroll', () => {
+      if (jumpTicking) return;
+      jumpTicking = true;
+      requestAnimationFrame(() => {
+        jumpNav.classList.toggle('visible', window.scrollY > 500);
+        jumpTicking = false;
+      });
+    });
+  }
 });
