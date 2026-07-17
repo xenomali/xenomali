@@ -49,13 +49,8 @@ body { position: relative; }
 .job-title, .job-meta, .job-tag, .job-date, .result-count,
 .footer-meta, .toggle-gaji, .btn-reset, .job-link, .disclaimer-banner,
 .empty-state p, .loading-state span, .job-salary, .btn-load-more,
-.load-more-count, .job-body-toggle {
+.load-more-count, .job-body-toggle, .brand-experiment {
   font-family: var(--mono);
-}
-
-.filter-bar select option {
-  background: var(--gray-10);
-  color: var(--gray-88);
 }
 
 /* ── Background — CSS-only, ringan ── */
@@ -94,7 +89,7 @@ body { position: relative; }
 }
 .header-inner {
   max-width: 768px; margin: 0 auto;
-  display: flex; align-items: center; gap: 12px;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
   padding: 14px 24px;
 }
 .brand {
@@ -104,12 +99,19 @@ body { position: relative; }
 .brand-name {
   font-size: 15px; font-weight: 700; letter-spacing: 0.22em;
 }
+.brand-tags {
+  display: flex; align-items: center; gap: 6px;
+  flex-wrap: wrap; justify-content: flex-end;
+}
 .brand-tag {
   font-family: var(--mono);
   font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase;
   color: var(--gray-44);
   border: 1px solid var(--gray-22); padding: 3px 8px;
-  margin-left: 2px;
+}
+.brand-experiment {
+  font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gray-38);
 }
 
 /* ── Disclaimer banner — sticky, wajib keliatan ── */
@@ -131,7 +133,7 @@ body { position: relative; }
   padding: 56px 24px 32px;
 }
 .hero-label {
-  font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase;
+  font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase;
   color: var(--gray-38); margin-bottom: 14px;
 }
 .hero-title {
@@ -190,6 +192,10 @@ body { position: relative; }
 }
 .filter-bar select:hover, .filter-bar select:focus {
   border-color: var(--gray-38); color: var(--fg); outline: none;
+}
+.filter-bar select option {
+  background: var(--gray-10);
+  color: var(--gray-88);
 }
 
 .toggle-gaji {
@@ -269,7 +275,6 @@ body { position: relative; }
   border-color: rgba(255,0,0,0.35); color: rgba(255,130,100,1);
   background: rgba(255,0,0,0.06);
 }
-/* Badge daerah — putih terang, sesuai permintaan */
 .job-tag.tag-daerah {
   border-color: var(--gray-33); color: var(--gray-e5);
   font-weight: 500;
@@ -287,7 +292,6 @@ body { position: relative; }
 .job-body-toggle svg { transition: transform 0.25s ease; }
 .job-body-toggle.open svg { transform: rotate(180deg); }
 
-/* Slide-down animation pakai max-height, bukan display toggle kaku */
 .job-body {
   max-height: 0;
   overflow: hidden;
@@ -319,7 +323,7 @@ body { position: relative; }
   font-size: 11px; color: var(--gray-70); line-height: 1.75;
 }
 
-/* Footer kartu — SEMUA konten (termasuk tanggal) di dalam kartu, gak ada yang bocor keluar */
+/* Footer kartu — SEMUA konten (termasuk tanggal) di dalam kartu; nowrap biar gak melorot */
 .job-footer {
   margin-top: 12px; padding-top: 12px;
   border-top: 1px solid var(--gray-14);
@@ -383,7 +387,7 @@ body { position: relative; }
   50% { transform: scale(1.5); opacity: 1; }
 }
 
-/* ── Load more (infinite scroll pengganti — tombol manual, lebih ringan & terkontrol) ── */
+/* ── Load more ── */
 .load-more-wrap {
   display: flex; flex-direction: column; align-items: center; gap: 8px;
   padding: 24px 0 8px;
@@ -405,6 +409,20 @@ body { position: relative; }
   border-top: 1px solid var(--gray-14);
   padding: 32px 24px 40px;
 }
+.footer-experiment {
+  max-width: 720px; margin: 0 auto 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--gray-14);
+}
+.footer-experiment h3 {
+  font-family: var(--mono);
+  font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gray-44); margin-bottom: 10px;
+}
+.footer-experiment p {
+  font-size: 11px; color: var(--gray-55); line-height: 1.85;
+}
+.footer-experiment strong { color: var(--gray-88); }
 .footer-disclaimer {
   max-width: 720px; margin: 0 auto 20px;
 }
@@ -433,4 +451,6 @@ body { position: relative; }
   .disclaimer-banner { font-size: 10px; padding: 8px 16px; }
   .filter-row.secondary { flex-direction: column; align-items: flex-start; gap: 8px; }
   .job-card { padding: 20px 18px 16px; }
+  .header-inner { flex-wrap: wrap; gap: 8px; }
+  .brand-tags { justify-content: flex-start; }
 }
