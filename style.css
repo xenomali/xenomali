@@ -328,25 +328,22 @@ body { position: relative; }
 .job-footer {
   margin-top: 12px; padding-top: 12px;
   border-top: 1px solid var(--gray-14);
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 10px; flex-wrap: nowrap;
+  display: flex; flex-direction: column;
+  gap: 10px;
 }
 .job-date {
   display: inline-flex; align-items: center; gap: 5px;
   font-size: 9.5px; color: var(--gray-44); letter-spacing: 0.05em;
-  flex-shrink: 1; min-width: 0;
-  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
 }
 .job-link {
-  display: inline-flex; align-items: center; gap: 6px;
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
   font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase;
   color: var(--gray-88); text-decoration: none;
-  padding: 7px 13px;
+  padding: 9px 13px;
   border: 1px solid var(--gray-22);
   background: transparent;
   transition: all 0.15s ease;
-  flex-shrink: 0;
-  white-space: nowrap;
+  width: 100%;
 }
 .job-link:hover, .job-link:active {
   color: #fff; border-color: #fff; background: rgba(255,255,255,0.04);
